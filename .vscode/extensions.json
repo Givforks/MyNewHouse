@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-mysql",
+    "mongodb.mongodb-vscode",
+    "amazonwebservices.aws-toolkit-vscode",
+    "ms-azuretools.vscode-docker",
+    "postman.postman-for-vscode",
+    "GitHub.vscode-pull-request-github"
+  ]
+}
