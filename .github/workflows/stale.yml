@@ -1,0 +1,25 @@
+name: Stale Issues & PRs
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # daily
+  workflow_dispatch: {}
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mark stale
+        uses: actions/stale@v6
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: |
+            This issue has been automatically marked as stale because it has not had recent activity.
+            If you think this is still important, please leave a comment.
+          stale-pr-message: |
+            This pull request has been automatically marked as stale because it has not had recent activity.
+            If you think this is still relevant, please update the PR.
+          days-before-stale: 30
+          days-before-close: 7
+          exempt-labels: 'pinned,security,never-stale'

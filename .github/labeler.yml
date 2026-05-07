@@ -1,0 +1,15 @@
+backend:
+  - 'src/**'
+
+frontend:
+  - 'web/**'
+
+docs:
+  - 'docs/**'
+
+ci:
+  - '.github/workflows/**'
+
+dependabot:
+  - 'package.json'
+  - 'package-lock.json'
