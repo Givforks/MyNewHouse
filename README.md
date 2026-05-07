@@ -28,3 +28,13 @@ This repository stores reusable VS Code, linting, formatting, and project bootst
 4. Run `npm run prepare` in your project to activate Husky hooks.
 
 See `SYNC_INSTRUCTIONS.md` for how to recover the setup after signing into VS Code.
+
+## Circuit Breaker States
+
+If you are documenting resilient services or API clients, the circuit breaker pattern has three states:
+
+- Closed: normal operation; requests flow through as usual.
+- Open: tripped or failing; requests are blocked to prevent more damage.
+- Half-open: testing recovery; a small number of requests are allowed to see whether the service is healthy again.
+
+These notes can be reused in API, backend, and microservice documentation.
