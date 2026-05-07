@@ -1,5 +1,7 @@
 # MyNewHouse Development Templates
 
+[![CI](https://github.com/Givforks/MyNewHouse/actions/workflows/ci.yml/badge.svg)](https://github.com/Givforks/MyNewHouse/actions)
+
 Author: Givens Emmah Abraham
 
 GitHub: https://github.com/Givforks

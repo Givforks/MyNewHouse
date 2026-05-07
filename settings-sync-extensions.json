@@ -1,0 +1,14 @@
+{
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "mongodb.mongodb-vscode",
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-mysql",
+    "ms-azuretools.vscode-docker",
+    "postman.postman-for-vscode",
+    "GitHub.vscode-pull-request-github"
+  ]
+}
