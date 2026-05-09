@@ -1,0 +1,52 @@
+{
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "name": "full-stack-heavy",
+  "projectType": "application",
+  "sourceRoot": ".",
+  "implicitDependencies": ["shared-config"],
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run lint"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm test"
+      }
+    },
+    "postman:test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node postman-mcp-test.js"
+      }
+    },
+    "postman:test:mock-mcp": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run postman:test:mock-mcp"
+      }
+    },
+    "postman:fullstack": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node postman-mcp-fullstack-integration.js"
+      }
+    },
+    "postman:gist": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash postman-mcp-gist-sync.sh"
+      }
+    },
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run prepare"
+      }
+    }
+  },
+  "tags": ["scope:workspace", "type:tooling"]
+}

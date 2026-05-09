@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Nx local cache
+.nx/
+
+# Environment secrets
+.env.postman
+.env
+
+# Local generated workspace from interactive scaffold
+myworkspace/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
