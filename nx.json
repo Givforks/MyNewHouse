@@ -19,6 +19,9 @@
     "postman:test": {
       "inputs": ["default", "^default"]
     },
+    "postman:test:mock-mcp": {
+      "inputs": ["default", "^default"]
+    },
     "postman:fullstack": {
       "inputs": ["default", "^default"]
     },

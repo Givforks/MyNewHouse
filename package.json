@@ -9,6 +9,7 @@
     "test": "node postman-mcp-test.js",
     "prepare": "node -e \"console.log('Prepare step complete')\"",
     "postman:test": "node postman-mcp-test.js",
+    "postman:test:mock-mcp": "MCP_AUTO_MOCK=1 node postman-mcp-test.js",
     "postman:fullstack": "node postman-mcp-fullstack-integration.js"
   },
   "dependencies": {

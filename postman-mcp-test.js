@@ -17,6 +17,59 @@ loadPostmanEnvironment();
 
 const settings = getPostmanSettings();
 
+function shouldAutoMockMcp() {
+  const value = (process.env.MCP_AUTO_MOCK || '').toLowerCase();
+  return value === '1' || value === 'true' || value === 'yes';
+}
+
+async function startMockMcpServerIfEnabled() {
+  if (!shouldAutoMockMcp()) {
+    return null;
+  }
+
+  return new Promise((resolve) => {
+    const server = http.createServer((req, res) => {
+      if (req.url === '/health') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ status: 'ok', source: 'mock-mcp' }));
+        return;
+      }
+
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ status: 'not-found' }));
+    });
+
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        console.log(`Using existing MCP service on ${settings.mcpServerHost}:${settings.mcpServerPort}`);
+        resolve(null);
+        return;
+      }
+
+      console.warn(`Unable to start mock MCP server: ${err.message}`);
+      resolve(null);
+    });
+
+    server.listen(settings.mcpServerPort, settings.mcpServerHost, () => {
+      console.log(`Mock MCP server started on ${settings.mcpServerHost}:${settings.mcpServerPort}`);
+      resolve(server);
+    });
+  });
+}
+
+async function stopMockMcpServer(server) {
+  if (!server) {
+    return;
+  }
+
+  await new Promise((resolve) => {
+    server.close(() => {
+      console.log('Mock MCP server stopped');
+      resolve();
+    });
+  });
+}
+
 /**
  * Test Postman API connectivity
  */
@@ -164,8 +217,12 @@ function testConfiguration() {
  * Run all tests and display results
  */
 async function runTests() {
+  let mockMcpServer;
+
   console.log('\n🧪 Postman MCP Connection Tests\n');
   console.log('=' .repeat(60));
+
+  mockMcpServer = await startMockMcpServerIfEnabled();
 
   // Test Configuration
   console.log('\n1️⃣  Configuration Check');
@@ -203,6 +260,7 @@ async function runTests() {
   const allPass = configTest.status === 'PASS' && postmanTest.status === 'PASS';
   console.log(`\n✅ Overall Status: ${allPass ? 'READY' : 'CHECK REQUIRED'}\n`);
 
+  await stopMockMcpServer(mockMcpServer);
   process.exit(allPass ? 0 : 1);
 }
 
