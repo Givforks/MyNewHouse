@@ -19,4 +19,10 @@
 
 5. Optional: Use a dotfiles repo or GitHub Gist for global templates and import them into VS Code Settings.
 
+Current Settings Sync Gist:
+- https://gist.github.com/Givforks/c145ab5820514017458ffbb25ed81269
+
+Repository protection status:
+- Branch protection is enabled on `main` for `Givforks/MyNewHouse`.
+
 That's it — once Settings Sync is on and this folder is in a remote repo, you can sign into VS Code and recover your environment quickly.
