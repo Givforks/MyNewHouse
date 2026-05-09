@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "main",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [
+      "{workspaceRoot}/package.json",
+      "{workspaceRoot}/package-lock.json",
+      "{workspaceRoot}/nx.json"
+    ]
+  },
+  "targetDefaults": {
+    "lint": {
+      "inputs": ["default", "^default"]
+    },
+    "test": {
+      "inputs": ["default", "^default"]
+    },
+    "postman:test": {
+      "inputs": ["default", "^default"]
+    },
+    "postman:fullstack": {
+      "inputs": ["default", "^default"]
+    },
+    "postman:gist": {
+      "inputs": ["default", "^default"]
+    },
+    "prepare": {
+      "inputs": ["default", "^default"]
+    }
+  }
+}

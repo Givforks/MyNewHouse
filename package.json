@@ -1,0 +1,17 @@
+{
+  "name": "full-stack-heavy",
+  "version": "0.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "nx": "nx",
+    "postman:test": "node postman-mcp-test.js",
+    "postman:fullstack": "node postman-mcp-fullstack-integration.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "nx": "^17.0.0"
+  }
+}
