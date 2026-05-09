@@ -35,6 +35,12 @@
         "command": "node postman-mcp-fullstack-integration.js"
       }
     },
+    "env:check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run env:check"
+      }
+    },
     "postman:gist": {
       "executor": "nx:run-commands",
       "options": {
