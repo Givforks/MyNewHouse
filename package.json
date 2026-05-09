@@ -5,6 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "nx": "nx",
+    "env:check": "bash scripts/check-environment.sh",
     "lint": "node -e \"console.log('Lint placeholder: no linter configured yet')\"",
     "test": "node postman-mcp-test.js",
     "test:unit": "node -e \"console.log('No unit tests configured yet')\"",
