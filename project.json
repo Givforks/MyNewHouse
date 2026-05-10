@@ -29,6 +29,12 @@
         "command": "npm run postman:test:mock-mcp"
       }
     },
+    "postman:test:live": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run postman:test:live"
+      }
+    },
     "postman:fullstack": {
       "executor": "nx:run-commands",
       "options": {

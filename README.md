@@ -31,6 +31,20 @@ This repository stores reusable VS Code, linting, formatting, and project bootst
 
 See `SYNC_INSTRUCTIONS.md` for how to recover the setup after signing into VS Code.
 
+## Postman MCP Quick Checks
+
+Use these commands inside this workspace:
+
+- `npm run postman:test` runs the default readiness check.
+- `npm run postman:test:mock-mcp` runs the same check with an auto-mocked local MCP endpoint.
+- `npm run postman:test:live` starts the local MCP server, runs the default readiness check, then stops the server.
+
+Nx equivalents:
+
+- `npx nx run full-stack-heavy:postman:test`
+- `npx nx run full-stack-heavy:postman:test:mock-mcp`
+- `npx nx run full-stack-heavy:postman:test:live`
+
 ## Circuit Breaker States
 
 If you are documenting resilient services or API clients, the circuit breaker pattern has three states:

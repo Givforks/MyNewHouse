@@ -6,12 +6,14 @@
   "scripts": {
     "nx": "nx",
     "env:check": "bash scripts/check-environment.sh",
+    "mcp:start": "node mcp-server.js",
     "lint": "node -e \"console.log('Lint placeholder: no linter configured yet')\"",
     "test": "node postman-mcp-test.js",
     "test:unit": "node -e \"console.log('No unit tests configured yet')\"",
     "test:integration": "node -e \"console.log('No integration tests configured yet')\"",
     "test:e2e": "node -e \"console.log('No e2e tests configured yet')\"",
     "prepare": "node -e \"console.log('Prepare step complete')\"",
+    "postman:test:live": "bash scripts/postman-live-check.sh",
     "postman:test": "node postman-mcp-test.js",
     "postman:test:mock-mcp": "MCP_AUTO_MOCK=1 node postman-mcp-test.js",
     "postman:fullstack": "node postman-mcp-fullstack-integration.js"
